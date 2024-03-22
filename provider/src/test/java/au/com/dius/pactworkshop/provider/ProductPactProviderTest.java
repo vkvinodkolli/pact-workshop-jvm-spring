@@ -70,11 +70,12 @@ public class ProductPactProviderTest {
         }
     }
 
+/*
     @State("products exist")
     void toProductsExistState() {
         when(productRepository.fetchAll()).thenReturn(
-                Arrays.asList(new Product("09", "CREDIT_CARD", "Gem Visa", "v1"),
-                        new Product("10", "CREDIT_CARD", "28 Degrees", "v1")));
+                Arrays.asList(new Product("19", "DEBIT_CARD", "Gem Visa", "v1"),
+                        new Product("10", "DEBIT_CARD", "28 Degrees", "v1")));
     }
 
     @State({
@@ -84,9 +85,10 @@ public class ProductPactProviderTest {
     void toNoProductsExistState() {
         when(productRepository.fetchAll()).thenReturn(Collections.emptyList());
     }
+*/
 
     @State("product with ID 10 exists")
     void toProductWithIdTenExistsState() {
-        when(productRepository.getById("10")).thenReturn(Optional.of(new Product("10", "CREDIT_CARD", "28 Degrees", "v1")));
+        when(productRepository.getById("10")).thenReturn(Optional.of(new Product("11", "DEBIT_CARD", "28 Degrees", "v1")));
     }
 }

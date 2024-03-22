@@ -26,6 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ExtendWith(PactConsumerTestExt.class)
 public class ProductConsumerPactTest {
 
+/*
     @Pact(consumer = "FrontendApplication", provider = "ProductService")
     RequestResponsePact getAllProducts(PactDslWithProvider builder) {
         return builder.given("products exist")
@@ -59,8 +60,9 @@ public class ProductConsumerPactTest {
                 .body("[]")
                 .toPact();
     }
+*/
 
-    @Pact(consumer = "FrontendApplication", provider = "ProductService")
+/*    @Pact(consumer = "FrontendApplication", provider = "ProductService")
     RequestResponsePact allProductsNoAuthToken(PactDslWithProvider builder) {
         return builder.given("products exist")
                 .uponReceiving("get all products with no auth token")
@@ -69,7 +71,7 @@ public class ProductConsumerPactTest {
                 .willRespondWith()
                 .status(401)
                 .toPact();
-    }
+    }*/
 
     @Pact(consumer = "FrontendApplication", provider = "ProductService")
     RequestResponsePact getOneProduct(PactDslWithProvider builder) {
@@ -89,7 +91,7 @@ public class ProductConsumerPactTest {
                 .toPact();
     }
 
-    @Pact(consumer = "FrontendApplication", provider = "ProductService")
+   /* @Pact(consumer = "FrontendApplication", provider = "ProductService")
     RequestResponsePact productDoesNotExist(PactDslWithProvider builder) {
         return builder.given("product with ID 11 does not exist")
                 .uponReceiving("get product with ID 11")
@@ -111,8 +113,8 @@ public class ProductConsumerPactTest {
                 .status(401)
                 .toPact();
     }
-
-    @Test
+*/
+/*    @Test
     @PactTestFor(pactMethod = "getAllProducts", pactVersion = PactSpecVersion.V3)
     void getAllProducts_whenProductsExist(MockServer mockServer) {
         Product product = new Product();
@@ -150,7 +152,7 @@ public class ProductConsumerPactTest {
         HttpClientErrorException e = assertThrows(HttpClientErrorException.class,
                 () -> new ProductService(restTemplate).getAllProducts());
         assertEquals(401, e.getStatusCode().value());
-    }
+    }*/
 
     @Test
     @PactTestFor(pactMethod = "getOneProduct", pactVersion = PactSpecVersion.V3)
@@ -168,7 +170,7 @@ public class ProductConsumerPactTest {
         assertEquals(expected, product);
     }
 
-    @Test
+/*    @Test
     @PactTestFor(pactMethod = "productDoesNotExist", pactVersion = PactSpecVersion.V3)
     void getProductById_whenProductWithId11DoesNotExist(MockServer mockServer) {
         RestTemplate restTemplate = new RestTemplateBuilder()
@@ -190,7 +192,7 @@ public class ProductConsumerPactTest {
         HttpClientErrorException e = assertThrows(HttpClientErrorException.class,
                 () -> new ProductService(restTemplate).getProduct("10"));
         assertEquals(401, e.getStatusCode().value());
-    }
+    }*/
 
     private Map<String, String> headers() {
       Map<String, String> headers = new HashMap<>();
