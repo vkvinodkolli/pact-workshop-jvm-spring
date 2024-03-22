@@ -70,21 +70,6 @@ public class ProductPactProviderTest {
         }
     }
 
-    @State("products exist")
-    void toProductsExistState() {
-        when(productRepository.fetchAll()).thenReturn(
-                Arrays.asList(new Product("09", "CREDIT_CARD", "Gem Visa", "v1"),
-                        new Product("10", "CREDIT_CARD", "28 Degrees", "v1")));
-    }
-
-    @State({
-            "no products exist",
-            "product with ID 11 does not exist"
-    })
-    void toNoProductsExistState() {
-        when(productRepository.fetchAll()).thenReturn(Collections.emptyList());
-    }
-
     @State("product with ID 10 exists")
     void toProductWithIdTenExistsState() {
         when(productRepository.getById("10")).thenReturn(Optional.of(new Product("10", "CREDIT_CARD", "28 Degrees", "v1")));
