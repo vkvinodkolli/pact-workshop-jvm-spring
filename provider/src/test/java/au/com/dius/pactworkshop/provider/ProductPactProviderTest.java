@@ -42,7 +42,7 @@ public class ProductPactProviderTest {
       return new SelectorBuilder()
         .deployedOrReleased()
         .mainBranch()
-        .branch("step11");
+        .branch("feature/test-1");
     }
     @LocalServerPort
     int port;
