@@ -42,7 +42,7 @@ public class ProductPactProviderTest {
       return new SelectorBuilder()
         .deployedOrReleased()
         .mainBranch()
-        .branch("step11");
+        .branch("feature/test-1");
     }
     @LocalServerPort
     int port;
@@ -69,23 +69,6 @@ public class ProductPactProviderTest {
             request.addHeader("Authorization", header);
         }
     }
-
-/*
-    @State("products exist")
-    void toProductsExistState() {
-        when(productRepository.fetchAll()).thenReturn(
-                Arrays.asList(new Product("19", "DEBIT_CARD", "Gem Visa", "v1"),
-                        new Product("10", "DEBIT_CARD", "28 Degrees", "v1")));
-    }
-
-    @State({
-            "no products exist",
-            "product with ID 11 does not exist"
-    })
-    void toNoProductsExistState() {
-        when(productRepository.fetchAll()).thenReturn(Collections.emptyList());
-    }
-*/
 
     @State("product with ID 10 exists")
     void toProductWithIdTenExistsState() {
