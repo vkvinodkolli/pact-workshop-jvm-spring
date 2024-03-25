@@ -58,7 +58,7 @@ public class ProductPactProviderTest {
     @TestTemplate
     @ExtendWith(PactVerificationInvocationContextProvider.class)
     void verifyPact(PactVerificationContext context, HttpRequest request) {
-        replaceAuthHeader(request);
+        //replaceAuthHeader(request);
         context.verifyInteraction();
     }
 
